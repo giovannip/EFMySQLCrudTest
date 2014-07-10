@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="northwind.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="northwindStoreContainer">
+    <EntitySet Name="categories" EntityType="northwind.Store.categories" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="customers" EntityType="northwind.Store.customers" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="employees" EntityType="northwind.Store.employees" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="order_details" EntityType="northwind.Store.order_details" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="orders" EntityType="northwind.Store.orders" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="products" EntityType="northwind.Store.products" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="shippers" EntityType="northwind.Store.shippers" store:Type="Tables" Schema="northwind" />
+    <EntitySet Name="suppliers" EntityType="northwind.Store.suppliers" store:Type="Tables" Schema="northwind" />
+  </EntityContainer>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="15" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Picture" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="40" />
+    <Property Name="ContactName" Type="varchar" MaxLength="30" />
+    <Property Name="ContactTitle" Type="varchar" MaxLength="30" />
+    <Property Name="Address" Type="varchar" MaxLength="60" />
+    <Property Name="City" Type="varchar" MaxLength="15" />
+    <Property Name="Region" Type="varchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+    <Property Name="Country" Type="varchar" MaxLength="15" />
+    <Property Name="Phone" Type="varchar" MaxLength="24" />
+    <Property Name="Fax" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="FirstName" Type="varchar" MaxLength="10" />
+    <Property Name="Title" Type="varchar" MaxLength="30" />
+    <Property Name="TitleOfCourtesy" Type="varchar" MaxLength="25" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="HireDate" Type="date" />
+    <Property Name="Address" Type="varchar" MaxLength="60" />
+    <Property Name="City" Type="varchar" MaxLength="15" />
+    <Property Name="Region" Type="varchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+    <Property Name="Country" Type="varchar" MaxLength="15" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="24" />
+    <Property Name="Extension" Type="varchar" MaxLength="4" />
+    <Property Name="Photo" Type="varchar" MaxLength="40" />
+    <Property Name="Notes" Type="text" />
+    <Property Name="ReportsTo" Type="int" />
+  </EntityType>
+  <EntityType Name="order_details">
+    <Key>
+      <PropertyRef Name="odID" />
+    </Key>
+    <Property Name="odID" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="UnitPrice" Type="float" />
+    <Property Name="Quantity" Type="smallint" />
+    <Property Name="Discount" Type="float" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="varchar" MaxLength="5" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="RequiredDate" Type="date" />
+    <Property Name="ShippedDate" Type="date" />
+    <Property Name="ShipVia" Type="int" />
+    <Property Name="Freight" Type="float" />
+    <Property Name="ShipName" Type="varchar" MaxLength="40" />
+    <Property Name="ShipAddress" Type="varchar" MaxLength="60" />
+    <Property Name="ShipCity" Type="varchar" MaxLength="15" />
+    <Property Name="ShipRegion" Type="varchar" MaxLength="15" />
+    <Property Name="ShipPostalCode" Type="varchar" MaxLength="10" />
+    <Property Name="ShipCountry" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="varchar" MaxLength="40" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="QuantityPerUnit" Type="varchar" MaxLength="20" />
+    <Property Name="UnitPrice" Type="float" />
+    <Property Name="UnitsInStock" Type="smallint" />
+    <Property Name="UnitsOnOrder" Type="smallint" />
+    <Property Name="ReorderLevel" Type="smallint" />
+    <Property Name="Discontinued" Type="bool" />
+  </EntityType>
+  <EntityType Name="shippers">
+    <Key>
+      <PropertyRef Name="ShipperID" />
+    </Key>
+    <Property Name="ShipperID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="40" />
+    <Property Name="Phone" Type="varchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="40" />
+    <Property Name="ContactName" Type="varchar" MaxLength="30" />
+    <Property Name="ContactTitle" Type="varchar" MaxLength="30" />
+    <Property Name="Address" Type="varchar" MaxLength="60" />
+    <Property Name="City" Type="varchar" MaxLength="15" />
+    <Property Name="Region" Type="varchar" MaxLength="15" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+    <Property Name="Country" Type="varchar" MaxLength="15" />
+    <Property Name="Phone" Type="varchar" MaxLength="24" />
+    <Property Name="Fax" Type="varchar" MaxLength="24" />
+    <Property Name="HomePage" Type="text" />
+  </EntityType>
+</Schema>
